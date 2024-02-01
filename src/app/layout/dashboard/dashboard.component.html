@@ -1,1 +1,42 @@
-<p>dashboard works!</p>
+<!-- inicio sidebarv-->
+<mat-drawer-container class="dashboard-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+<!-- fin sidebar-->
+
+      <div class="example-sidenav-content">
+
+    <!-- inicio toolbar-->
+      <mat-toolbar color="primary">
+          <!-- boton del menu-->
+        <button  
+        (click)="drawer.toggle()"
+        mat-icon-button 
+        class="example-icon" 
+        aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar>
+     <!-- fin toolbar-->
+
+<!--ver aqui pagina alumnos-users-->
+<app-alumnos-users></app-alumnos-users>
+     
+    </div>
+   
+  </mat-drawer-container>

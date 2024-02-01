@@ -10,6 +10,7 @@ import { AlumnosUsersComponent } from './alumnos-users.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [AlumnosUsersComponent ]
 })
 export class AlumnosUsersModule { }
