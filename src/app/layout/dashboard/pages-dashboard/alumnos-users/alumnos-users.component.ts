@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { UsersService } from '../../../../core/services/users.service';
 
 export interface User {
   id: number;
@@ -37,7 +38,8 @@ export class AlumnosUsersComponent {
   }
   
   ];
-
+  constructor(private userService: UsersService){}
+  
 
 
   

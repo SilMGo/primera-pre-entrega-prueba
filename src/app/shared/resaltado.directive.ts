@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 })
 export class ResaltadoDirective {
 
-  @Input() set appresaltado(role: string) {
+  @Input() set appResaltado(role: string) {
 
     if (role === 'ADMIN') {
       this.renderer.setStyle(this.el.nativeElement, 'background-color', 'green');
