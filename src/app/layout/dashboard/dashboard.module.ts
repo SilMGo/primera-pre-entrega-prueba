@@ -24,7 +24,8 @@ import { SharedModule } from '../../shared/shared.module';
     AlumnosUsersModule, 
     ReactiveFormsModule,
     PipesModule,
- SharedModule
+ SharedModule,
+ 
   ],
   exports: [DashboardComponent]
 })

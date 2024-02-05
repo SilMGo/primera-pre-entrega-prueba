@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from './pages-dashboard/alumnos-users/alumnos-users.component';
+import { AlumnosFormComponent } from './pages-dashboard/alumnos-users/components/alumnos-form/alumnos-form.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   showFiller = false;
-}
+
+  onEditarUser(user: User): void {
+       
+    }}
+   

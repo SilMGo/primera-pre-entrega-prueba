@@ -9,6 +9,8 @@ import {MatSelectModule} from '@angular/material/select';  //usado x alumnos-for
 import {MatButtonModule} from '@angular/material/button';  //usado x alumnos-form
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -28,7 +30,9 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatSelectModule,  //selector usado x alumnos-form
     MatButtonModule,//boton usado x alumnos-form 
    ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [AlumnosUsersComponent ]
 })

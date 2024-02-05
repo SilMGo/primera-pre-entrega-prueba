@@ -1,5 +1,6 @@
+<div *ngIf="dataSource.length > 0"> <!--si no hay datos de tabla borra la tabla-->
 <!--inicio formulario de alumnos-->
-<div class="mb-3">
+<div  class="mb-3">
   <app-alumnos-form (userSubmitted)="onUserSubmitted($event)"></app-alumnos-form>
 </div>
 <!-- fin formulario de alumnos-->
@@ -42,7 +43,26 @@
   <td mat-cell *matCellDef="let user" appResaltado> {{user.role}} </td>
 </ng-container>
 
+<!--acciones Column -->
+<ng-container matColumnDef="acciones">
+  <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
+  <td mat-cell *matCellDef="let user; let i = index " style="text-align: right;">
+  
+    <a class="pointer" (click)="eliminarUsuario(i)" style="color:red"  matTooltip="Eliminar">
+      <mat-icon>delete</mat-icon>
+    </a>
+    
+    <a class="pointer"  style="color:green"  matTooltip="Editar ">
+      <mat-icon>edit</mat-icon>
+    </a >
+ 
+
+  </td>
+</ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <!-- fin tabla con datos de  de alumnos-->
+</div>
+<h2 *ngIf="dataSource.length == 0">No hay alumnos para mostrar</h2>

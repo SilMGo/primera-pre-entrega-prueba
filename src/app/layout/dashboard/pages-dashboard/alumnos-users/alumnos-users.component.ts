@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 export interface User {
   id: number;
@@ -17,7 +17,7 @@ export interface User {
   styleUrl: './alumnos-users.component.scss'
 })
 export class AlumnosUsersComponent {
-  displayedColumns: string[] = ["id", "firstName", "lastName", "email", "role"];
+  displayedColumns: string[] = ["id", "firstName", "lastName", "email", "role", "acciones"];
   dataSource: User[] =[
     {
     id: 1,
@@ -38,7 +38,21 @@ export class AlumnosUsersComponent {
   
   ];
 
+
+
+  
   onUserSubmitted(ev: User): void {
      this.dataSource = [...this.dataSource, {...ev, id:new Date ().getTime() }] //creando el nuevo array que cxontendra lo ya escreito en la tabla+ lo q entre del form
   }
-}
+
+  eliminarUsuario(index: number): void {
+    console.log(index); 
+    this.dataSource = this.dataSource.filter((user, i) => i !== index);
+  }
+  @Output()
+  editUser = new EventEmitter<User>();
+  
+
+
+  }
+
