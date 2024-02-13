@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UsersService } from '../../../../core/services/users.service';
+import { NgModule } from '@angular/core'
 
 export interface User {
   id: number;

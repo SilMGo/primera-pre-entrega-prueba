@@ -27,12 +27,20 @@
       mat-list-item>CURSOS
     </a>
 
+    <a
+    #sesionLink ="routerLinkActive"
+      routerLinkActive
+      [activated]="sesionLink.isActive" 
+      routerLink="aunth/loguin-aunth" 
+     mat-list-item>Inscripciones
+    </a>
+  
+
       <a
       #sesionLink ="routerLinkActive"
         routerLinkActive
         [activated]="sesionLink.isActive" 
-       
-       routerLink="aunth/loguin-aunth" 
+        routerLink="aunth/loguin-aunth" 
        mat-list-item>Cerrar sesion
       </a>
 

@@ -15,6 +15,7 @@ import { HomeComponent } from './pages-dashboard/home/home.component';
 import { AlumnosUsersComponent } from './pages-dashboard/alumnos-users/alumnos-users.component';
 import { CursosProductsComponent } from './pages-dashboard/cursos-products/cursos-products.component';
 import { UserDetailComponent } from './pages-dashboard/alumnos-users/pages/user-detail/user-detail.component';
+import { CursosProductsModule } from './pages-dashboard/cursos-products/cursos-products.module';
 
  @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { UserDetailComponent } from './pages-dashboard/alumnos-users/pages/user-
     ReactiveFormsModule,
     PipesModule,
     SharedModule,
-   
+    //CursosProductsModule,
     MatListModule,
     RouterModule.forChild([
       { path: 'home',
@@ -45,7 +46,9 @@ import { UserDetailComponent } from './pages-dashboard/alumnos-users/pages/user-
        component: UserDetailComponent, 
        },
        { path: 'cursos-products',
-       component: CursosProductsComponent, 
+       loadChildren: () =>
+          import('./pages-dashboard/cursos-products/cursos-products.module').then(
+            (m) => m.CursosProductsModule),
        },
 
      // { path: '**',
