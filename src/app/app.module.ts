@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './layout/dashboard/dashboard.module';
 import { AunthModule } from './layout/aunth/aunth.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AunthModule } from './layout/aunth/aunth.module';
     AppRoutingModule,
     BrowserAnimationsModule,
    // DashboardModule,
-    AunthModule
+    AunthModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],

@@ -32,7 +32,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
     MatSelectModule,  //selector usado x alumnos-form
     MatButtonModule,//boton usado x alumnos-form 
    ReactiveFormsModule,
-    SharedModule,
+    SharedModule, //contiene lo de angular material
     MatIconModule,
     MatTooltipModule,
     RouterModule
