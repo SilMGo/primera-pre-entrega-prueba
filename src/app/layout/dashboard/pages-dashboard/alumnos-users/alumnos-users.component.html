@@ -48,10 +48,15 @@
   <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
   <td mat-cell *matCellDef="let user; let i = index " style="text-align: right;">
   
+    <!--boton borrar de tabla -->
     <a class="pointer" (click)="eliminarUsuario(i)" style="color:red"  matTooltip="Eliminar">
       <mat-icon>delete</mat-icon>
     </a>
-    
+
+    <button  [routerLink]="user.id" color="accent" mat-icon-button>
+        <mat-icon>visibility</mat-icon>
+    </button>
+
     <a class="pointer"  style="color:green"  matTooltip="Editar ">
       <mat-icon>edit</mat-icon>
     </a >
@@ -66,3 +71,6 @@
   <!-- fin tabla con datos de  de alumnos-->
 </div>
 <h2 *ngIf="dataSource.length == 0">No hay alumnos para mostrar</h2>
+
+<h1>soy alumnos-users</h1>
+<router-outlet></router-outlet>

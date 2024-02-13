@@ -9,10 +9,17 @@ import { AlumnosUsersModule } from './pages-dashboard/alumnos-users/alumnos-user
 import { ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from './pages-dashboard/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
+import { Router, RouterModule } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
+import { HomeComponent } from './pages-dashboard/home/home.component';
+import { AlumnosUsersComponent } from './pages-dashboard/alumnos-users/alumnos-users.component';
+import { CursosProductsComponent } from './pages-dashboard/cursos-products/cursos-products.component';
+import { UserDetailComponent } from './pages-dashboard/alumnos-users/pages/user-detail/user-detail.component';
 
  @NgModule({
   declarations: [
     DashboardComponent,
+    
    
   ],
   imports: [
@@ -24,9 +31,32 @@ import { SharedModule } from '../../shared/shared.module';
     AlumnosUsersModule, 
     ReactiveFormsModule,
     PipesModule,
- SharedModule,
- 
+    SharedModule,
+   
+    MatListModule,
+    RouterModule.forChild([
+      { path: 'home',
+        component: HomeComponent,
+      },
+      { path: 'alumnos-users',
+       component: AlumnosUsersComponent, 
+       },
+       { path: 'alumnos-users/id',
+       component: UserDetailComponent, 
+       },
+       { path: 'cursos-products',
+       component: CursosProductsComponent, 
+       },
+
+     // { path: '**',
+       // redirectTo: 'home',
+      //},
+    ]),
   ],
-  exports: [DashboardComponent]
+  exports: [DashboardComponent],
 })
-export class DashboardModule { }
+  
+export class DashboardModule { 
+
+
+  }

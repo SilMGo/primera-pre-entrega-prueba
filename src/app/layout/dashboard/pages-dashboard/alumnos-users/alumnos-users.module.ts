@@ -11,13 +11,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { RouterModule } from '@angular/router';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 
 
 @NgModule({
   declarations: [
     AlumnosUsersComponent,
     AlumnosFormComponent,
+    UserDetailComponent,
      
     
     
@@ -32,7 +34,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
    ReactiveFormsModule,
     SharedModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    RouterModule
   ],
   exports: [AlumnosUsersComponent ]
 })

@@ -2,13 +2,42 @@
 
 <mat-drawer-container class="dashboard-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
+      <mat-nav-list>
+        <a
+        #homeLink ="routerLinkActive"
+        routerLinkActive
+        [activated]="homeLink.isActive"
+        routerLink="home" 
+        mat-list-item>INICIO
+      </a>
+       
+        <a 
+        #alumnosLink ="routerLinkActive"
+        routerLinkActive
+        [activated]="alumnosLink.isActive"
+        routerLink="alumnos-users" 
+        mat-list-item>ALUMNOS
+      </a>
+       
+      <a 
+      #cursosLink ="routerLinkActive"
+      routerLinkActive
+      [activated]="cursosLink.isActive"
+      routerLink="cursos-products" 
+      mat-list-item>CURSOS
+    </a>
+
+      <a
+      #sesionLink ="routerLinkActive"
+        routerLinkActive
+        [activated]="sesionLink.isActive" 
+       
+       routerLink="aunth/loguin-aunth" 
+       mat-list-item>Cerrar sesion
+      </a>
+
+      </mat-nav-list>
+
     </mat-drawer>
 <!-- fin sidebar-->
 
@@ -39,10 +68,11 @@
 
 <!--ver aqui pagina alumnos-users-->
 <div class="p-3">
-  <app-pipes></app-pipes>
- <app-alumnos-users></app-alumnos-users>
+  <router-outlet></router-outlet>
+<!-- <app-pipes></app-pipes> --> 
+<!-- <app-alumnos-users></app-alumnos-users> -->
 </div>
-     
-    </div>
-   
-  </mat-drawer-container>
+     </div>
+     </mat-drawer-container>
+
+ 
