@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { AlumnosUsersRoutingModule } from './alumnos-users-routing.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
     SharedModule, //contiene lo de angular material
     MatIconModule,
     MatTooltipModule,
-    RouterModule
+    RouterModule, 
+    AlumnosUsersRoutingModule
   ],
   exports: [AlumnosUsersComponent ]
 })

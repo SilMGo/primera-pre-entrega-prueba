@@ -4,42 +4,42 @@
     <mat-drawer #drawer class="example-sidenav" mode="side">
       <mat-nav-list>
         <a
-        #homeLink ="routerLinkActive"
+      
         routerLinkActive
-        [activated]="homeLink.isActive"
+      
         routerLink="home" 
         mat-list-item>INICIO
       </a>
        
         <a 
-        #alumnosLink ="routerLinkActive"
+        
         routerLinkActive
-        [activated]="alumnosLink.isActive"
+       
         routerLink="alumnos-users" 
         mat-list-item>ALUMNOS
       </a>
        
       <a 
-      #cursosLink ="routerLinkActive"
+     
       routerLinkActive
-      [activated]="cursosLink.isActive"
+      
       routerLink="cursos-products" 
       mat-list-item>CURSOS
     </a>
 
     <a
-    #sesionLink ="routerLinkActive"
+   
       routerLinkActive
-      [activated]="sesionLink.isActive" 
+     
       routerLink="aunth/loguin-aunth" 
      mat-list-item>Inscripciones
     </a>
   
 
       <a
-      #sesionLink ="routerLinkActive"
+     
         routerLinkActive
-        [activated]="sesionLink.isActive" 
+        
         routerLink="aunth/loguin-aunth" 
        mat-list-item>Cerrar sesion
       </a>

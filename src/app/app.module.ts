@@ -18,9 +18,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-   // DashboardModule,
-    AunthModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    DashboardModule,
+    AunthModule
 
   ],
   providers: [],

@@ -7,19 +7,18 @@ import { LoguinAunthComponent } from './layout/aunth/loguin-aunth/loguin-aunth.c
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 
 const routes: Routes = [
+   {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
   {
     path: 'dashboard',
-   
     component: DashboardComponent,
     loadChildren: () =>
       import('./layout/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
-      ),
+        (m) => m.DashboardModule ),
   },
-  // {
-  //   path: 'auth/login',
-  //   component: LoginComponent,
-  // },
   {
     path: 'auth',
     loadChildren: () =>
@@ -29,10 +28,12 @@ const routes: Routes = [
     path: '404',
     component: NotFoundComponent,
   },
-  {
+   {
     path: '**',
-    redirectTo: '/aunth/loguin-aunth',
+    redirectTo: '404',
   },
+   
+   
 ];
 
 @NgModule({
