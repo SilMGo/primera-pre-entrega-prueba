@@ -23,16 +23,10 @@ import { DatePipe } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    CursosProductsRoutingModule,
     SharedModule, // estan todos acá
-    FormsModule,
-    ReactiveFormsModule,
-    MatTableDataSource,
-    MatIconModule,
-    MatTableModule,
-    MatIconModule,  
-    Component,
-    DatePipe
+    CursosProductsRoutingModule,
+    
+    
   ],
   providers: [CursosService, DatePipe],
   exports: [CursosProductsComponent]
