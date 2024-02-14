@@ -9,16 +9,16 @@ export class CursosService {
     getCursos () {
         const cursos: Curso []=[
             {id: 1,
-            name: 'asd',
+            name: 'assdfsdfd',
             startDate: new Date ()
             },    
-            {id: 2,
-            name: 'qwe',
+            {id: 245,
+            name: 'qsdfsdfwe',
             startDate: new Date ()
             }, 
             
-            {id: 3,
-            name: 'zxc',
+            {id: 13,
+            name: 'zsdfsdfxc',
             startDate: new Date ()
             }, 
 
