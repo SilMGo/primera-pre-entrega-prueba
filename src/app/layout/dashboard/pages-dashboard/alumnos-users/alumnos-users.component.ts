@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UsersService } from '../../../../core/services/users.service';
 import { NgModule } from '@angular/core'
+import { AlertService } from '../../../../core/services/alerts.service';
+import { Router } from '@angular/router';
 
 export interface User {
   id: number;
@@ -39,13 +41,14 @@ export class AlumnosUsersComponent {
   }
   
   ];
-  constructor(private userService: UsersService){}
+  constructor
+  (private userService: UsersService) {}
   
 
 
   
   onUserSubmitted(ev: User): void {
-     this.dataSource = [...this.dataSource, {...ev, id:new Date ().getTime() }] //creando el nuevo array que cxontendra lo ya escreito en la tabla+ lo q entre del form
+     this.dataSource = [...this.dataSource, {...ev, id:new Date ().getTime() }] //creando el nuevo array que contendra lo ya escrito en la tabla + lo q entre del form
   }
 
   eliminarUsuario(index: number): void {
