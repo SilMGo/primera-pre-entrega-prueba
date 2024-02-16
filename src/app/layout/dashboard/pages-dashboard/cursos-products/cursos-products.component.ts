@@ -14,15 +14,31 @@ export class CursosProductsComponent {
   cursos: Curso[] =[]
 
   constructor(
-    private CursosService: CursosService, 
+    private cursosService: CursosService, 
     private loadingService: LoadingService) {
-    this.CursosService.getCursos().subscribe({
+   
+   this.loadingService.setIsLoading(true)
+      this.cursosService.getCursos().subscribe({
       next: (cursos) => {
         this.cursos = cursos;
+      },
+      complete: ()=> {
+        this.loadingService.setIsLoading(false);
       }
     })
 
   }
   
-
+onDelete(id:number){
+  this.loadingService.setIsLoading(true)
+  
+  this.cursosService.deleteCursoById(id).subscribe({
+    next:(cursos) => {
+      this.cursos = cursos;
+    },
+    complete: ()=> {
+      this.loadingService.setIsLoading(false);
+    }
+  })
+}
 }

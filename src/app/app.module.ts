@@ -22,10 +22,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     
 
   ],
-  providers: [ {
-    provide: LOCALE_ID,
-    useValue: 'es-AR'
-  },
+  providers: [ 
   
   {//modificación de config x defecto de AN Mat
     provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
