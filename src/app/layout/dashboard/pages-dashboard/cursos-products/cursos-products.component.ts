@@ -9,7 +9,7 @@ import { LoadingService } from '../../../../core/services/loading.service';
   styleUrl: './cursos-products.component.scss'
 })
 export class CursosProductsComponent {
-  displayedColumns: string[] =['id', 'curseName','fechaInicio', 'fechaFin',  'actions'];
+  displayedColumns: string[] =['id', 'name','startDate', 'fechaFin',  'actions'];
 
   cursos: Curso[] =[]
 
