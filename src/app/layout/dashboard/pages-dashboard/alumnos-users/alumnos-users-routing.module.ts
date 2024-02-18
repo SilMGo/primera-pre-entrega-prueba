@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AlumnosUsersComponent } from './alumnos-users.component';
-import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+
 
 
 
@@ -16,10 +16,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
           component:AlumnosUsersComponent,
         },
 
-        {
-          path: 'id',
-          component: UserDetailComponent,
-        },
+      
 
     ])
         ],

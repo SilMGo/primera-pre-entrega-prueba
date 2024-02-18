@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from './pages-dashboard/alumnos-users/alumnos-users.component';
+//import { User } from './pages-dashboard/alumnos-users/alumnos-users.component';
 import { AlumnosFormComponent } from './pages-dashboard/alumnos-users/components/alumnos-form/alumnos-form.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DashboardComponent {
   showFiller = false;
 
-  onEditarUser(user: User): void {}
+ // onEditarUser(user: User): void {}
 
 
 

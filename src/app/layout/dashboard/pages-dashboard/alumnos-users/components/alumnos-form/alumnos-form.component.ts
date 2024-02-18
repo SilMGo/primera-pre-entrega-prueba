@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Alumno } from '../../models';
 
 @Component({
   selector: 'app-alumnos-form',
@@ -7,27 +9,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './alumnos-form.component.scss'
 })
 export class AlumnosFormComponent {
-  userForm: FormGroup;
+ 
+  alumnoForm:FormGroup;
 
-  @Output()
-  userSubmitted = new EventEmitter();
+constructor(
+  private fb: FormBuilder,
+  private dialogref:MatDialogRef<AlumnosFormComponent>,
+  @Inject (MAT_DIALOG_DATA) private editingAlumno?: Alumno,
+  ) {
+  this.alumnoForm = this.fb.group({
+    name: this.fb.control('', Validators.required),
+    lastName: this.fb.control('', Validators.required),
+    email: this.fb.control('', Validators.required),
+    rol: this.fb.control('', Validators.required),
+  });
 
-  constructor(private fb: FormBuilder) {
-    this.userForm = this.fb.group({
-      firstName: this.fb.control('', Validators.required),
-      lastName: this.fb.control('', Validators.required),
-      email: this.fb.control('', Validators.required),
-      password: this.fb.control('', Validators.required),
-      role: this.fb.control('', Validators.required),
-    });
+  if (editingAlumno) {
+    this.alumnoForm.patchValue(editingAlumno);
   }
+}
 
-  onSubmit(): void {
-    if (this.userForm.invalid) {
-      this.userForm.markAllAsTouched(); // validacion apra que no se envie form vacio
-    } else {
-      this.userSubmitted.emit(this.userForm.value);
-      this.userForm.reset(); // restaura valor a vacio
-    }
-  }
+
+onSave(): void {
+  this.dialogref.close(this.alumnoForm.value)
+}
+
 }

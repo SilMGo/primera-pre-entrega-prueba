@@ -1,18 +1,13 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component,  } from '@angular/core';
 import { UsersService } from '../../../../core/services/users.service';
 import { NgModule } from '@angular/core'
 import { AlertService } from '../../../../core/services/alerts.service';
 import { Router } from '@angular/router';
+import { AlumnosService } from './alumnos-users.service';
+import { Alumno } from './models';
 
-export interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  role: string;
-
-}
+import { MatDialog } from '@angular/material/dialog';
+import { AlumnosFormComponent } from './components/alumnos-form/alumnos-form.component';
 
 
 @Component({
@@ -21,44 +16,63 @@ export interface User {
   styleUrl: './alumnos-users.component.scss'
 })
 export class AlumnosUsersComponent {
-  displayedColumns: string[] = ["id", "firstName", "lastName", "email", "role", "acciones"];
-  dataSource: User[] =[
-    {
-    id: 1,
-    firstName: "Claudia",
-    lastName: "Sosa",
-    email: "claudiasosa123@gmail.com",
-    password:"sfddf",
-    role: "ADM",
-  },
-  {
-    id: 4578,
-    firstName: "Romina",
-    lastName: "Gomez",
-    email: "RomiG@gmail.com",
-    password:"sfddf",
-    role: "ADM",
+  displayedColumns = ['id','name', 'lastName', 'email', 'rol', 'actions'];
+
+  alumnos: Alumno []= []
+
+  constructor (
+    private alumnosService : AlumnosService,
+    public dialog: MatDialog
+   ) {
+
+    this.alumnosService.getAlumnos().subscribe ({
+      next: (alumnos) => {
+        this.alumnos=alumnos;
+      }
+    })
   }
-  
-  ];
-  constructor
-  (private userService: UsersService) {}
-  
-
-
-  
-  onUserSubmitted(ev: User): void {
-     this.dataSource = [...this.dataSource, {...ev, id:new Date ().getTime() }] //creando el nuevo array que contendra lo ya escrito en la tabla + lo q entre del form
-  }
-
-  eliminarUsuario(index: number): void {
-    console.log(index); 
-    this.dataSource = this.dataSource.filter((user, i) => i !== index);
-  }
-  @Output()
-  editUser = new EventEmitter<User>();
-  
-
-
+  onCreate (): void {
+    this.dialog
+    .open(AlumnosFormComponent)
+    .afterClosed()
+    .subscribe ({
+      next: (result) => {
+        if (result) {
+          this.alumnosService.createAlumnos(result).subscribe({
+            next: (alumnos) => (this.alumnos =alumnos),
+          })
+        }
+      }
+    })
   }
 
+  onEdit (alumno:Alumno){
+    this.dialog.open (AlumnosFormComponent,{
+      data: alumno,
+    }).afterClosed()
+      .subscribe({
+       next: (result)=> {
+        if (result){
+          this.alumnosService.updateAlumnoById(alumno.id, result)
+          .subscribe ({
+            next: (alumnos) => (this.alumnos =alumnos),
+          })
+        }
+       }})
+  }
+
+
+
+  onDelete(id:number) {
+    if (confirm ('Vas a borrar un dato de la tabla. Estras seguro?')){
+    this.alumnosService.deleteAlumnoById(id).subscribe ({
+      next: (alumnos) => {
+        this.alumnos= alumnos;
+      }
+    })
+  }
+ }
+}
+  
+
+  
