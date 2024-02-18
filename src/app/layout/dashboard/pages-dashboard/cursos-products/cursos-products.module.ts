@@ -15,15 +15,17 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import {MatIconModule} from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
+import { ProductDialogComponent } from './components/product-dialog/product-dialog.component';
 
 @NgModule ({
   declarations: [
     CursosProductsComponent,
+    ProductDialogComponent,
     
   ],
   imports: [
     CommonModule,
-    SharedModule, // estan todos acá
+    SharedModule, // contiene todos los imports de angular material
     CursosProductsRoutingModule,
     
     

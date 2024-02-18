@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    
+    MatDialogModule,
+   MatNativeDateModule
 
   ],
   providers: [ 

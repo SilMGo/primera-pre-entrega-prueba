@@ -9,9 +9,11 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { RouterModule } from '@angular/router';
 
+
  @NgModule({
   declarations: [
     DashboardComponent,
+    
    //hola
     
    

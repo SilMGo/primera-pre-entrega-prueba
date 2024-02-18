@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+
 @NgModule({
   declarations: [
     FullNamePipe,
@@ -46,6 +47,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
      MatInputModule,
      MatFormFieldModule,
      MatCardModule,
+     
       
     
     ]

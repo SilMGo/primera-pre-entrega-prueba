@@ -1,4 +1,8 @@
 <h1>CURSOS</h1>
+
+<div class="flex-justify-content-end" mb-3>
+  <button (click)="onCreate()" mat-button>AGREGAR</button>
+</div>
 <table mat-table [dataSource]="cursos">
 
   
@@ -35,7 +39,7 @@
       <button (click)="onDelete(element.id)" color="red" mat-icon-button>
          <mat-icon>delete</mat-icon>
       </button>
-      <button  color="warn" mat-icon-button>
+      <button (click)="onEdit(element)" color="warn" mat-icon-button>
         <mat-icon>edit</mat-icon>
       </button>
     </td>
