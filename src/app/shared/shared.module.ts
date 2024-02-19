@@ -17,13 +17,16 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ValidationErrorsPipe } from './validation-errors.pipe';
+
 
 
 @NgModule({
   declarations: [
     FullNamePipe,
     ResaltadoDirective,
-    RepetirDirective
+    RepetirDirective,
+    ValidationErrorsPipe // pipe q valida errores
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FullNamePipe,
     ResaltadoDirective,
      RepetirDirective,
-     
+     ValidationErrorsPipe,
  
      //de angular material 
      MatTableModule,
