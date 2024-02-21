@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,  } from '@angular/router';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 
 
@@ -30,6 +31,7 @@ import { RouterModule,  } from '@angular/router';
 
             {
               path: 'alumnos-users',
+              canActivate: [adminGuard],
               loadChildren: () =>
               import ('./pages-dashboard/alumnos-users/alumnos-users.module').then (
                 (m) => m.AlumnosUsersModule),

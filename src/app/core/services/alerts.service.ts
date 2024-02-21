@@ -18,6 +18,20 @@ showAlert(options: SweetAlertOptions): void {
     this.notification$.next (options);
 }
 
+showSuccess(title: string, message: string): void {
+    this.notification$.next({
+      icon: 'success',
+      title,
+      text: message,
+    });
+  }
 
+  showError(message?: string): void {
+    this.notification$.next({
+      icon: 'error',
+      title: 'Error!',
+      text: message,
+    });
+  }
 
 }

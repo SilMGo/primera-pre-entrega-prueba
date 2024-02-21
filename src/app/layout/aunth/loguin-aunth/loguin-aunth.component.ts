@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-loguin-aunth',
@@ -12,7 +13,8 @@ export class LoguinAunthComponent {
   revealPassword = false;
   
 constructor (
-  private fb: FormBuilder,){
+  private fb: FormBuilder,
+  private authService : AuthService){
     this.loginForm = this.fb.group({
       email: this.fb.control('',[Validators.required,Validators.email]),
       password: this.fb.control('', [Validators.required]),
@@ -22,6 +24,8 @@ constructor (
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
+    } else {
+      this.authService.login(this.loginForm.value)
     }
   }
 
