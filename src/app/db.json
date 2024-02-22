@@ -1,0 +1,25 @@
+{ "students": [ 
+    {
+    "id": 1,
+    "name": "Juan",
+    "lastName": "Lopez",
+    "email": "juanlop125@gmail.com",
+    "rol": "ADM"
+},
+
+{
+    "id": 2,
+    "name": "Celina",
+    "lastName": "Rodriguez",
+    "email": "celiro122@gmail.com",
+    "rol": "ALUM"
+},
+{
+    "id": 3,
+    "name": "Romina",
+    "lastName": "Gonzalez",
+    "email": "RoroG125@gmail.com",
+    "rol": "ALUM"
+}]
+
+}

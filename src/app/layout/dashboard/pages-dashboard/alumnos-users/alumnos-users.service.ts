@@ -2,41 +2,27 @@ import { Injectable,  } from "@angular/core";
 import { delay, finalize, of } from "rxjs";
 import { Alumno } from "./models";
 import { LoadingService } from "../../../../core/services/loading.service";
+import { AlertService } from "../../../../core/services/alerts.service";
+import { HttpClient } from "@angular/common/http";
 
 // simula base de datos
 let alumnos :  Alumno [] = [
-    {
-        id: 1,
-        name: "Juan",
-        lastName: 'Lopez',
-        email: 'juanlop125@gmail.com',
-        rol: "ADM",
-    },
-
-    {
-        id: 2,
-        name: "Celina",
-        lastName: 'Rodriguez',
-        email: 'celiro122@gmail.com',
-        rol: "ALUM",
-    },
-    {
-        id: 3,
-        name: "Romina",
-        lastName: 'Gonzalez',
-        email: 'RoroG125@gmail.com',
-        rol: "ALUM",
-    },
+   
 ]
 @Injectable ()
 export class AlumnosService {
 
-    constructor  (private  loadingService: LoadingService){}
+    constructor  (
+        private  loadingService: LoadingService,
+        private alertService: AlertService,
+        private httpclient: HttpClient){}
 
+   //metodo q consulta alumnos
     getAlumnos() {
        this.loadingService.setIsLoading(true)
         return of(alumnos). pipe(delay (1500),
-        finalize(() => this.loadingService.setIsLoading(false)));
+       finalize(() => this.loadingService.setIsLoading(false)));
+       //return this.httpclient.get()
     }
     createAlumnos(data:Alumno) {
         alumnos = [...alumnos, {...data, id:alumnos.length+1}];
